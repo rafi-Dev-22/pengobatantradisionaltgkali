@@ -126,10 +126,16 @@ function simpanAlamat() {
 
 // ── KONTAK ──
 const kontakData = {
-  wa:  { val:'-', link:v=>`https://wa.me/${v.replace(/\D/g,'')}` },
-  ig:  { val:'-', link:v=>`https://instagram.com/${v.replace('@','')}` },
-  tt:  { val:'-', link:v=>`https://tiktok.com/${v}` },
-  tel: { val:'-', link:v=>`tel:${v.replace(/\s/g,'')}` },
+  wa: {
+    val: "+62 858-3685-9030",
+    link: (v) => `https://wa.me/${v.replace(/\D/g, "")}`,
+  },
+  ig: {
+    val: "@_azkiya411",
+    link: (v) => `https://instagram.com/${v.replace("@", "")}`,
+  },
+  tt: { val: "-", link: (v) => `https://tiktok.com/${v}` },
+  tel: { val: "085836859030", link: (v) => `tel:${v.replace(/\s/g, "")}` },
 };
 const judulKontak = {wa:'WhatsApp',ig:'Instagram',tt:'TikTok',tel:'Nomor Telepon'};
 let editTarget='';
