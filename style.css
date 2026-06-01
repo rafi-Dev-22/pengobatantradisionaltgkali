@@ -162,10 +162,12 @@ footer strong{color:#fff}
 
   /* HERO — fix ruang kosong di atas */
   #hero{
-    min-height:100svh;
-    padding:80px 1.2rem 40px;
+    min-height:100svh !important;
+    min-height:100vh;
+    padding:74px 1.2rem 40px !important;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-start;
+    flex-direction:column;
   }
   .hero-content{
     width:100%;
