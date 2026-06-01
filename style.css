@@ -150,4 +150,107 @@ footer strong{color:#fff}
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.maps-wrap{grid-template-columns:1fr}.form-layout{grid-template-columns:1fr;gap:2rem}}
+/* ═══ MOBILE RESPONSIVE ═══ */
+@media(max-width:768px){
+
+  /* NAV */
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  nav{padding:0 1rem}
+  .nav-brand-text{font-size:0.85rem}
+  .nav-logo-img{width:38px;height:38px}
+
+  /* HERO — fix ruang kosong di atas */
+  #hero{
+    min-height:100svh;
+    padding:80px 1.2rem 40px;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-content{
+    width:100%;
+    padding-top:0;
+  }
+  .hero-badge{
+    font-size:0.6rem;
+    letter-spacing:2px;
+    padding:5px 14px;
+    margin-bottom:1rem;
+  }
+  .hero-title{
+    font-size:2rem;
+    line-height:1.2;
+    margin-bottom:1rem;
+  }
+  .hero-sub{
+    font-size:0.92rem;
+    line-height:1.6;
+    margin-bottom:1.8rem;
+    padding:0 0.5rem;
+  }
+  .hero-btns{
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+  .btn-emas,.btn-outline{
+    width:100%;
+    max-width:280px;
+    text-align:center;
+    padding:13px 20px;
+  }
+  .hero-stats{
+    gap:1.5rem;
+    margin-top:2rem;
+  }
+  .hero-stat-num{font-size:1.6rem}
+  .hero-leaf{display:none}
+
+  /* SECTIONS */
+  section{padding:50px 1.2rem}
+  .section-title{font-size:1.6rem}
+
+  /* JADWAL */
+  .jadwal-grid{grid-template-columns:1fr}
+  .status-bar{flex-wrap:wrap;gap:8px}
+  .status-sub{margin-left:0;font-size:0.78rem}
+
+  /* LAYANAN */
+  .layanan-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .layanan-card{padding:1.4rem 1rem}
+  .layanan-icon{width:50px;height:50px;font-size:1.4rem}
+  .layanan-name{font-size:1rem}
+  .layanan-desc{font-size:0.8rem}
+
+  /* GALERI */
+  .galeri-grid{grid-template-columns:1fr 1fr;gap:10px}
+
+  /* MAPS */
+  .maps-wrap{grid-template-columns:1fr;gap:1.5rem}
+  .maps-frame iframe{height:260px}
+
+  /* CARA BEROBAT */
+  .form-layout{grid-template-columns:1fr;gap:2rem}
+
+  /* KONTAK */
+  .kontak-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .kontak-card{padding:1.3rem 0.8rem}
+  .kontak-circle{width:48px;height:48px;font-size:1.3rem}
+  .kontak-name{font-size:0.85rem}
+  .kontak-val{font-size:0.75rem}
+
+  /* FOOTER */
+  footer{padding:2rem 1.2rem}
+  footer img{width:64px;height:64px}
+
+  /* ALAMAT BOX */
+  .alamat-box{padding:1rem}
+  .alamat-val{font-size:0.85rem}
+}
+
+/* Layar sangat kecil */
+@media(max-width:380px){
+  .hero-title{font-size:1.75rem}
+  .layanan-grid{grid-template-columns:1fr}
+  .kontak-grid{grid-template-columns:1fr 1fr}
+}
