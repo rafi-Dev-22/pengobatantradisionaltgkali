@@ -76,24 +76,10 @@ function updateStatusBar(j,nm) {
 renderJadwal();
 
 // ── GALERI ──
-const fotoList=[];
-function tambahFoto(input) {
-  Array.from(input.files).forEach(file=>{
-    const r=new FileReader();
-    r.onload=e=>{fotoList.push(e.target.result);renderGaleri();};
-    r.readAsDataURL(file);
-  });
-  input.value='';
+function bukaFotoStatis(src) {
+  document.getElementById('modalImg').src=src;
+  document.getElementById('modalFoto').classList.add('aktif');
 }
-function renderGaleri() {
-  const grid=document.getElementById('galeriGrid');
-  let html=`<div class="foto-item" onclick="document.getElementById('inputFoto').click()"><div class="foto-placeholder-icon">📷</div><div class="foto-placeholder-txt">Tambah foto</div></div>`;
-  fotoList.forEach((src,i)=>{
-    html+=`<div class="foto-item" onclick="bukaFoto(${i})"><img src="${src}" alt="Foto ${i+1}"><div class="foto-overlay" style="font-size:2rem;color:#fff;">🔍</div></div>`;
-  });
-  grid.innerHTML=html;
-}
-function bukaFoto(i) { document.getElementById('modalImg').src=fotoList[i]; document.getElementById('modalFoto').classList.add('aktif'); }
 function tutupModal() { document.getElementById('modalFoto').classList.remove('aktif'); }
 
 // ── ALAMAT ──
