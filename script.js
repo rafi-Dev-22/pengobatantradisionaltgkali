@@ -96,27 +96,7 @@ function renderGaleri() {
 function bukaFoto(i) { document.getElementById('modalImg').src=fotoList[i]; document.getElementById('modalFoto').classList.add('aktif'); }
 function tutupModal() { document.getElementById('modalFoto').classList.remove('aktif'); }
 
-// ── MAPS ──
-function terapkanMaps() {
-  let raw=document.getElementById('inputMaps').value.trim();
-  if(raw.includes('maps.app.goo.gl')||raw.includes('goo.gl')) {
-    alert('Link pendek tidak bisa digunakan.\n\nCara yang benar:\n1. Buka Google Maps di PC/laptop\n2. Cari lokasi Anda\n3. Klik Bagikan\n4. Pilih tab Sematkan peta\n5. Klik SALIN HTML\n6. Tempel kode iframe di sini');
-    return;
-  }
-  const match=raw.match(/src="([^"]+)"/);
-  const url=match?match[1]:raw;
-  if(url&&url.includes('google.com/maps')) {
-    document.getElementById('mapsFrame').src=url;
-    document.getElementById('mapsPlaceholder').style.display='none';
-    alert('Peta berhasil diperbarui!');
-  } else {
-    alert('Kode tidak valid. Harus kode iframe dari Google Maps -> Bagikan -> Sematkan peta.');
-  }
-}
-function bukaGMaps() {
-  const alamat=document.getElementById('inputAlamat').value||document.getElementById('tampilAlamat').textContent||'Banda Aceh';
-  window.open('https://www.google.com/maps/search/'+encodeURIComponent(alamat),'_blank');
-}
+// ── ALAMAT ──
 function simpanAlamat() {
   document.getElementById('tampilAlamat').textContent=document.getElementById('inputAlamat').value||'-';
   document.getElementById('tampilLandmark').textContent=document.getElementById('inputLandmark').value||'-';
@@ -126,19 +106,14 @@ function simpanAlamat() {
 
 // ── KONTAK ──
 const kontakData = {
-  wa: {
-    val: "+62 858-3685-9030",
-    link: (v) => `https://wa.me/${v.replace(/\D/g, "")}`,
-  },
-  ig: {
-    val: "@_azkiya411",
-    link: (v) => `https://instagram.com/${v.replace("@", "")}`,
-  },
-  tt: { val: "-", link: (v) => `https://tiktok.com/${v}` },
-  tel: { val: "085836859030", link: (v) => `tel:${v.replace(/\s/g, "")}` },
+  wa:  { val:"+62 858-3685-9030", link:v=>`https://wa.me/${v.replace(/\D/g,'')}` },
+  ig:  { val:"@_azkiya411",       link:v=>`https://instagram.com/${v.replace('@','')}` },
+  tt:  { val:"@teungku.ali.pagar.ayee", link:v=>`https://tiktok.com/${v}` },
+  tel: { val:"085836859030",      link:v=>`tel:${v.replace(/\s/g,'')}` },
 };
 const judulKontak = {wa:'WhatsApp',ig:'Instagram',tt:'TikTok',tel:'Nomor Telepon'};
 let editTarget='';
+
 function bukaEditKontak(key,e) {
   e.stopPropagation();
   editTarget=key;
@@ -162,7 +137,7 @@ function bukaLink(key,e) {
 }
 function bukaWA() {
   const v=kontakData.wa.val;
-  if(!v||v==='-') { alert('Nomor WhatsApp belum diisi. Klik tombol Edit pada kartu WhatsApp.'); return; }
+  if(!v||v==='-') { alert('Nomor WhatsApp belum diisi.'); return; }
   window.open('https://wa.me/'+v.replace(/\D/g,''),'_blank');
 }
 
